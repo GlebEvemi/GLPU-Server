@@ -1,5 +1,7 @@
 package com.skillissue.GLPUinventory.Entities;
 
+import java.util.UUID;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -15,6 +17,16 @@ public class Computer {
     private String gpu;
     private String ram;
     private String storage;
+    
+
+    public Computer() {
+    }
+    
+
+    public Computer(String hostname) {
+        this(UUID.randomUUID().toString(), hostname, null, null, null, null, null);
+    }
+
 
     public Computer(String id, String hostname, String ipAddress, String cpu, String gpu, String ram, String storage) {
         this.id = id;
