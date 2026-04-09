@@ -2,6 +2,7 @@ package com.skillissue.GLPUinventory.Entities;
 
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -11,11 +12,18 @@ public class Computer {
     @Id
     private String id;
 
+    @Column(name = "hostname")
     private String hostname;
+
+    @Column(name = "ipAddress")
     private String ipAddress;
+    @Column(name = "cpu")
     private String cpu;
+    @Column(name = "gpu")
     private String gpu;
+    @Column(name = "ram")
     private String ram;
+    @Column(name = "storage")
     private String storage;
     
 

@@ -2,19 +2,25 @@ package com.skillissue.GLPUinventory.Entities;
 
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
     private String id;
 
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "password")
     private String pass;
 
+    @Column(name = "role")
     private String role;
     
 
@@ -29,8 +35,6 @@ public class User {
         this.pass = pass;
         this.role = role;
     }
-
-    
 
 
     public User() {
