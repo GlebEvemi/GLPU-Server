@@ -2,7 +2,8 @@ package com.skillissue.GLPUinventory.Repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.skillissue.GLPUinventory.Entities.User;
+import com.skillissue.GLPUinventory.Entity.User;
+
 import java.util.Optional;
 
 

@@ -1,4 +1,4 @@
-package com.skillissue.GLPUinventory.Entities;
+package com.skillissue.GLPUinventory.Entity;
 
 import java.util.UUID;
 

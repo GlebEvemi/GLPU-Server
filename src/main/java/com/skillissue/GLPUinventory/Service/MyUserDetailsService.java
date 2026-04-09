@@ -11,7 +11,7 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.skillissue.GLPUinventory.Entities.User;
+import com.skillissue.GLPUinventory.Entity.User;
 import com.skillissue.GLPUinventory.Repository.UserRepository;
 
 @Service

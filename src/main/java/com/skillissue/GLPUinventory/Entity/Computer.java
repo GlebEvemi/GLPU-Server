@@ -1,4 +1,4 @@
-package com.skillissue.GLPUinventory.Entities;
+package com.skillissue.GLPUinventory.Entity;
 
 import java.util.UUID;
 
@@ -17,12 +17,16 @@ public class Computer {
 
     @Column(name = "ipAddress")
     private String ipAddress;
+
     @Column(name = "cpu")
     private String cpu;
+
     @Column(name = "gpu")
     private String gpu;
+
     @Column(name = "ram")
     private String ram;
+    
     @Column(name = "storage")
     private String storage;
     

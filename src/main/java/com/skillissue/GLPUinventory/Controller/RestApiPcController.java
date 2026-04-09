@@ -3,7 +3,7 @@ package com.skillissue.GLPUinventory.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skillissue.GLPUinventory.Entities.Computer;
+import com.skillissue.GLPUinventory.Entity.Computer;
 import com.skillissue.GLPUinventory.Repository.ComputerRepository;
 
 import java.util.Optional;
@@ -28,9 +28,9 @@ public class RestApiPcController {
     }
     
 
-    @GetMapping("/{id}")
-    Optional<Computer> getComputerById(@PathVariable String id){
-        return computerRepository.findById(id);
+    @GetMapping("/{hostname}")
+    Optional<Computer> getComputerById(@PathVariable String hostname){
+        return computerRepository.findByHostname(hostname);
     }
     
 }
