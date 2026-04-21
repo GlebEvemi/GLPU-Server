@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skillissue.GLPUinventory.Entity.Computer;
 import com.skillissue.GLPUinventory.Repository.ComputerRepository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -28,8 +30,9 @@ public class RestApiPcController {
     }
 
     @GetMapping
-    String getComputer(){
-        return computerRepository.findAllByHostname();
+    Iterable<String> getComputer(){
+
+        return computerRepository.findAllHostname();
     }
     
 
@@ -47,7 +50,7 @@ public class RestApiPcController {
     @PutMapping("/{hostname}")
     ResponseEntity<Computer> createComputer(@PathVariable String hostname, @RequestBody Computer computer){
         
-        return (!computerRepository.existByHostname(hostname))
+        return (!computerRepository.existsByHostname(hostname))
             ? new ResponseEntity<>(computerRepository.save(computer), HttpStatus.CREATED)
             : new ResponseEntity<>(computerRepository.save(computer), HttpStatus.OK);
     }
