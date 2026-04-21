@@ -28,7 +28,7 @@ public class RestApiPcController {
     }
 
     @GetMapping
-    Iterable<Computer> getComputer(){
+    String getComputer(){
         return computerRepository.findAllByHostname();
     }
     
