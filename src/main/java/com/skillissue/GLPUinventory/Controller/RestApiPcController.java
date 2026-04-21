@@ -29,7 +29,7 @@ public class RestApiPcController {
 
     @GetMapping
     Iterable<Computer> getComputer(){
-        return computerRepository.findAll();
+        return computerRepository.findAllByHostname();
     }
     
 

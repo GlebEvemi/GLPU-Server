@@ -12,4 +12,6 @@ public interface ComputerRepository extends CrudRepository<Computer, String> {
 
     boolean existByHostname(String hostname);
 
+    String findAllByHostname();
+
 }
