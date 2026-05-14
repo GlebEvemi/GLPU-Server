@@ -1,6 +1,7 @@
 package com.skillissue.GLPUinventory.Security;
 
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -17,13 +18,14 @@ public class SecurityConfig{
         http
             .csrf((csrf) -> csrf.disable())
             .authorizeHttpRequests((authorize) -> authorize
-            .requestMatchers("/api/**").hasRole("AGENT")
             .requestMatchers("/api/**").hasRole("ADMIN")
-            .anyRequest().permitAll())
+            .anyRequest().authenticated())
             //.formLogin(Customizer.withDefaults())
 		    .httpBasic(Customizer.withDefaults());
         return http.build();
     }
+
+
 
     
 }

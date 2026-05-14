@@ -2,7 +2,9 @@ package com.skillissue.GLPUinventory.Service;
 
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,12 +28,22 @@ public class MyUserDetailsService implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
-
+        
         return org.springframework.security.core.userdetails.User.withUsername(user.getUsername())
                 .password(user.getPass())
                 .roles(user.getRole())
                 .build();
     }
+
+    // @Bean
+	// public AuthenticationManager authenticationManager(
+	// 		UserDetailsService userDetailsService,
+	// 		PasswordEncoder passwordEncoder) {
+	// 	DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider(userDetailsService);
+	// 	authenticationProvider.setPasswordEncoder(passwordEncoder);
+
+	// 	return new ProviderManager(authenticationProvider);
+	// }
 
 
     @Bean
@@ -40,12 +52,12 @@ public class MyUserDetailsService implements UserDetailsService{
     }
 
 
-    @Bean
-    public AuthenticationProvider authProvider(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder){
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider(userDetailsService);
-        authProvider.setPasswordEncoder(passwordEncoder);
+     @Bean
+     public AuthenticationProvider authProvider(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder){
+         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider(userDetailsService);
+         authProvider.setPasswordEncoder(passwordEncoder);
 
-        return authProvider;
+         return authProvider;
         
-    }
+     }
 }
