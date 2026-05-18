@@ -6,14 +6,20 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-
+/**
+ * Computer entity representing hardware inventory records.
+ * Maps to the 'computer' table in the database.
+ * Each computer is uniquely identified by its hostname.
+ */
 @Entity
 public class Computer {
+    // Primary key: hostname uniquely identifies each computer
     @Id
     @JsonProperty("Hostname")
     @Column(name = "hostname")
     private String hostname;
 
+    // Operating system information
     @JsonProperty("OSName")
     @Column(name = "osName")
     private String osName;
@@ -22,6 +28,7 @@ public class Computer {
     @Column(name = "osVersion")
     private String osVersion;
 
+    // BIOS information
     @JsonProperty("BiosManufacturer")
     @Column(name = "biosManufacturer")
     private String biosManufacturer;
@@ -30,6 +37,7 @@ public class Computer {
     @Column(name = "biosStatus")
     private String biosStatus;
     
+    // Network and system information
     @JsonProperty("CsDomain")
     @Column(name = "csDomain")
     private String domain;
@@ -38,6 +46,7 @@ public class Computer {
     @Column(name = "csModel")
     private String model;
 
+    // Hardware specifications
     @JsonProperty("csProcessorName")
     @Column(name = "csProcessorName")
     private String processorName;
@@ -46,6 +55,7 @@ public class Computer {
     @Column(name = "totalRam_Gb")
     private Double totalRam;
 
+    // Storage information
     @JsonProperty("diskTotalSize")
     @Column(name = "diskTotalSize")
     private Double totalSize;
@@ -58,7 +68,9 @@ public class Computer {
     public Computer() {
     }
 
-
+    /**
+     * Constructor with all computer properties.
+     */
     public Computer(String hostname, String osName, String osVersion, String biosManufacturer, String biosStatus,
             String domain, String model, String processorName, Double totalRam, Double totalSize, Double freeSpace) {
         this.hostname = hostname;
@@ -182,6 +194,16 @@ public class Computer {
 
     public void setFreeSpace(Double freeSpace) {
         this.freeSpace = freeSpace;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Computer [getHostname()=" + getHostname() + ", getOsName()=" + getOsName() + ", getOsVersion()="
+                + getOsVersion() + ", getBiosManufacturer()=" + getBiosManufacturer() + ", getBiosStatus()="
+                + getBiosStatus() + ", getDomain()=" + getDomain() + ", getModel()=" + getModel()
+                + ", getProcessorName()=" + getProcessorName() + ", getTotalRam()=" + getTotalRam()
+                + ", getTotalSize()=" + getTotalSize() + ", getFreeSpace()=" + getFreeSpace() + "]";
     }
 
     
